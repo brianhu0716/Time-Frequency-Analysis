@@ -79,8 +79,14 @@ class time_frequency_analyze():
         df = pd.DataFrame.from_dict(coeffs,orient = "index")
         return df
             
+<<<<<<< HEAD
     def CWT(self,wavename = "") :
         if not wavename : wavename = "morl"
+=======
+    def CWT(self,wavename = "",Nscales = None) :
+        if not wavename : wavename = "morl"
+        if not Nscales : Nscales = 256
+>>>>>>> 9b829e56b12139bc90eb61923e0f88de9f81e207
         
         wc = 2 * np.pi * pywt.central_frequency(wavename)
         s0 = wc / np.pi
@@ -88,7 +94,11 @@ class time_frequency_analyze():
         jmax = np.log2(self.length/2/s0/8) * NV
         scales = s0 * 2 ** (np.arange(int(jmax))/NV)
         [spectrogram, frequencies] = pywt.cwt(self.data, scales, wavename, 1 / self.fs)
+<<<<<<< HEAD
         
+=======
+        '''
+>>>>>>> 9b829e56b12139bc90eb61923e0f88de9f81e207
         plt.figure()
         plt.subplot(2,1,1)
         plt.plot(self.time,self.data)
@@ -100,7 +110,11 @@ class time_frequency_analyze():
         plt.title("spectrogram")
         plt.xlabel("time")
         plt.ylabel("frequency")
+<<<<<<< HEAD
         
+=======
+        '''
+>>>>>>> 9b829e56b12139bc90eb61923e0f88de9f81e207
         df = pd.DataFrame.from_dict({"spectrofram" : spectrogram,
               "frequency" : frequencies,
               "time" : self.time}, orient = 'index')
@@ -163,11 +177,19 @@ class time_frequency_analyze():
         x = self.data
         xsize,xSTD = self.length,np.std(self.data,ddof = 1)
         
+<<<<<<< HEAD
         
         Nimf = int(np.floor(math.log2(xsize)) - 1)
         Nallmode = Nimf + 2
         allmode = np.zeros(shape = (Nallmode,xsize))
         
+=======
+        
+        Nimf = int(np.floor(math.log2(xsize)) - 1)
+        Nallmode = Nimf + 2
+        allmode = np.zeros(shape = (Nallmode,xsize))
+        
+>>>>>>> 9b829e56b12139bc90eb61923e0f88de9f81e207
         for ensemble in range(NE) :
             #print("ensemble = ",ensemble)
             x = self.data / xSTD

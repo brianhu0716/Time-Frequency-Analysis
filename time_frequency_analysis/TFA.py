@@ -20,13 +20,13 @@ class time_frequency_analyze():
         self.length = len(data)
         self.fs = fs
         self.time = np.arange(0,self.length / self.fs,1 / self.fs)
-        '''
+        
         plt.figure()
         plt.plot(self.time,self.data)
         plt.xlabel("time")
         plt.ylabel("amplitude")
         plt.title("raw data")
-        '''
+        
 
     def Upsampling(self):
         if 2 ** (k := int(math.log2(self.length))) != self.length :  
@@ -61,7 +61,7 @@ class time_frequency_analyze():
             print(len(cA))
             coeffs[level] = (cA, cD)
             a = cA
-        '''
+        
         for level,coeff in coeffs.items() :
             n = len(coeff[0])
             plt.figure()
@@ -75,18 +75,14 @@ class time_frequency_analyze():
                     plt.plot(np.linspace(0,self.time[-1],n),coeff[1])
                 plt.xlabel("time")
                 plt.ylabel("amplitude")
-         '''
+         
         df = pd.DataFrame.from_dict(coeffs,orient = "index")
         return df
             
-<<<<<<< HEAD
+
     def CWT(self,wavename = "") :
         if not wavename : wavename = "morl"
-=======
-    def CWT(self,wavename = "",Nscales = None) :
-        if not wavename : wavename = "morl"
-        if not Nscales : Nscales = 256
->>>>>>> 9b829e56b12139bc90eb61923e0f88de9f81e207
+
         
         wc = 2 * np.pi * pywt.central_frequency(wavename)
         s0 = wc / np.pi
@@ -94,11 +90,8 @@ class time_frequency_analyze():
         jmax = np.log2(self.length/2/s0/8) * NV
         scales = s0 * 2 ** (np.arange(int(jmax))/NV)
         [spectrogram, frequencies] = pywt.cwt(self.data, scales, wavename, 1 / self.fs)
-<<<<<<< HEAD
+
         
-=======
-        '''
->>>>>>> 9b829e56b12139bc90eb61923e0f88de9f81e207
         plt.figure()
         plt.subplot(2,1,1)
         plt.plot(self.time,self.data)
@@ -110,11 +103,7 @@ class time_frequency_analyze():
         plt.title("spectrogram")
         plt.xlabel("time")
         plt.ylabel("frequency")
-<<<<<<< HEAD
         
-=======
-        '''
->>>>>>> 9b829e56b12139bc90eb61923e0f88de9f81e207
         df = pd.DataFrame.from_dict({"spectrofram" : spectrogram,
               "frequency" : frequencies,
               "time" : self.time}, orient = 'index')
@@ -164,11 +153,6 @@ class time_frequency_analyze():
             return np.array(local_max),np.array(local_min)
         
         def CreateEnvelope(x,N) :
-            '''
-            f = interp1d(x[0], x[1],kind = "cubic",fill_value = N)
-            x_new = np.linspace(x[0][0],x[0][-1],N)
-            return x_new,f(x_new)
-            '''
             f = CubicSpline(x[0], x[1], bc_type='natural')
             x_new = np.linspace(x[0][0],x[0][-1],N)
             return x_new,f(x_new)
@@ -177,19 +161,12 @@ class time_frequency_analyze():
         x = self.data
         xsize,xSTD = self.length,np.std(self.data,ddof = 1)
         
-<<<<<<< HEAD
         
         Nimf = int(np.floor(math.log2(xsize)) - 1)
         Nallmode = Nimf + 2
         allmode = np.zeros(shape = (Nallmode,xsize))
         
-=======
-        
-        Nimf = int(np.floor(math.log2(xsize)) - 1)
-        Nallmode = Nimf + 2
-        allmode = np.zeros(shape = (Nallmode,xsize))
-        
->>>>>>> 9b829e56b12139bc90eb61923e0f88de9f81e207
+
         for ensemble in range(NE) :
             #print("ensemble = ",ensemble)
             x = self.data / xSTD
@@ -223,7 +200,7 @@ class time_frequency_analyze():
         allmode = allmode * xSTD / NE
 
         self.allmode = allmode
-        '''
+        
         for i in range(Nallmode) :
             plt.figure()
             plt.plot(self.time,allmode[i])
@@ -231,7 +208,7 @@ class time_frequency_analyze():
                 plt.title("original data with noise")
             else :
                 plt.title('IMF' + str(i + 1))
-        '''
+        
         df = pd.DataFrame.from_dict({"allmode" : allmode}, orient = "index")
         return df
     
@@ -259,7 +236,7 @@ if __name__ == "__main__":
     #data = np.sin(2 * np.pi * 10 * x) + np.sin(2 * np.pi * 35 * x)
     test = time_frequency_analyze(data,fs)
     #test.FFT()
-    #test.DWT("db4",3)
-    #test.EEMD(100,0.4,1)
-    test.CWT()
+    test.DWT("db4",3)
+    #test.EEMD(100,0.4)
+    #test.CWT()
 

@@ -198,19 +198,18 @@ class time_frequency_analyze():
 
             allmode[-1] += xend
         allmode = allmode * xSTD / NE
-
-        self.allmode = allmode
+        #print(allmode.shape)
         
-        for i in range(Nallmode) :
-            plt.figure()
+        plt.figure()
+        for i in range(1,Nallmode - 1) :
+            plt.subplot(Nimf,1,i)
             plt.plot(self.time,allmode[i])
-            if i == 0 :
-                plt.title("original data with noise")
-            else :
-                plt.title('IMF' + str(i + 1))
+            
         
-        df = pd.DataFrame.from_dict({"allmode" : allmode}, orient = "index")
+        df = pd.DataFrame.from_dict({"allmode" : allmode,"time" : self.time},
+                                    orient = "index")
         return df
+        
     
 if __name__ == "__main__":
     '''
@@ -236,7 +235,8 @@ if __name__ == "__main__":
     #data = np.sin(2 * np.pi * 10 * x) + np.sin(2 * np.pi * 35 * x)
     test = time_frequency_analyze(data,fs)
     #test.FFT()
-    test.DWT("db4",3)
-    #test.EEMD(100,0.4)
+    #test.DWT("db4",3)
     #test.CWT()
+    test.EEMD(100,0.4)
+    
 

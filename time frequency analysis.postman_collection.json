@@ -1,0 +1,417 @@
+{
+	"info": {
+		"_postman_id": "44cfd3ea-8049-4173-9bf8-d57144ba7100",
+		"name": "time frequency analysis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "fft post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\":{\r\n        \"workdir\": \"temp\",\r\n        \"filename\": \"table.csv\",\r\n        \"ext\": \"csv\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/preprocess/tfa/fft",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"preprocess",
+						"tfa",
+						"fft"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fft get",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\":{\r\n        \"filename\": \"table.csv\",\r\n        \"workdir\": \"temp\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/preprocess/tfa/fft",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"preprocess",
+						"tfa",
+						"fft"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fft delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"workdir\": \"temp\",\r\n        \"filename\": \"table.csv\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/preprocess/tfa/fft",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"preprocess",
+						"tfa",
+						"fft"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dwt post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\":{\r\n        \"workdir\": \"temp\",\r\n        \"filename\": \"table.csv\",\r\n        \"ext\": \"csv\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/preprocess/tfa/dwt",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"preprocess",
+						"tfa",
+						"dwt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cwt post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"workdir\": \"temp\",\r\n        \"filename\": \"table.csv\",\r\n        \"ext\": \"csv\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/preprocess/tfa/cwt",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"preprocess",
+						"tfa",
+						"cwt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dwt get",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\":{\r\n        \"workdir\": \"temp\",\r\n        \"filename\": \"table.csv\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/preprocess/tfa/dwt",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"preprocess",
+						"tfa",
+						"dwt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dwt delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"workdir\": \"temp\",\r\n        \"filename\": \"table.csv\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/preprocess/tfa/dwt",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"preprocess",
+						"tfa",
+						"dwt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cwt delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"filename\": \"table.csv\",\r\n        \"workdir\": \"temp\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/preprocess/tfa/cwt",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"preprocess",
+						"tfa",
+						"cwt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eemd post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"filename\": \"table.csv\",\r\n        \"workdir\": \"temp\",\r\n        \"ext\": \"csv\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/preprocess/tfa/eemd",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"preprocess",
+						"tfa",
+						"eemd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eemd get",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\":{\r\n        \"filename\": \"table.csv\",\r\n        \"workdir\": \"temp\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/preprocess/tfa/eemd",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"preprocess",
+						"tfa",
+						"eemd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eemd delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"filename\": \"table.csv\",\r\n        \"workdir\": \"temp\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/preprocess/tfa/eemd",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"preprocess",
+						"tfa",
+						"eemd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cwt get",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\":{\r\n        \"filename\": \"table.csv\",\r\n        \"workdir\": \"temp\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/preprocess/tfa/cwt",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"preprocess",
+						"tfa",
+						"cwt"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
